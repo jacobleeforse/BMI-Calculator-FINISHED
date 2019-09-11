@@ -9,18 +9,16 @@ int main()
 {
 	//VARIABLES-----------------------------------------------------------------------------------------------------------------------------
 	float weightLbs;
-
 	float weightKgs;
-
 	float heightIn;
-
-	float heightCms;
-
+	
 	float heightCmsSquared;
-
 	float bmiTotal;
-
+	float heightCms;
+	float heightMeters;
+	
 	string reply1;
+	string reply2;
  //----------------------------------------------------------------------------------------------------------------------------------
 	std::cout << "Hello There!\n";
 	std::cout << "\n";
@@ -43,7 +41,7 @@ int main()
 	}
 	else {
 
-		std::cout << "Sorry, I didn't recognize that input, please type it again.";
+		std::cout << "Sorry, I didn't recognize that input, please type it again.\n";
 
 			goto Weight;
 
@@ -61,7 +59,7 @@ int main()
 	{
 		std::cout << "Please enter your weight in Kilograms. (Kg)\n";
 		cin >> weightKgs;
-
+		goto height;
 
 	}
 
@@ -70,13 +68,13 @@ int main()
  height:
 
 	std::cout << "Do you know your height in inches or centimeters? (Input 'inch' or 'cm')\n";
-	cin >> reply1;
-	if (reply1 == "inch") {
+	cin >> reply2;
+	if (reply2 == "inch") {
 
 		std::cout << "Great!\n";
 		goto inches;
 	}
-	else if (reply1 == "cm") {
+	else if (reply2 == "cm") {
 
 		std::cout << "Great!\n";
 		goto cm;
@@ -99,9 +97,11 @@ int main()
 		cout << "Please enter your height in centimeters.\n";
 		cin >> heightCms;
 
+		heightMeters = heightCms * 0.01;
+
  Addition:
 
-	heightCmsSquared = heightCms * heightCms;
+	heightCmsSquared = heightMeters * heightMeters;
 
 	bmiTotal = weightKgs / heightCmsSquared;
 
